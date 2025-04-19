@@ -22,7 +22,7 @@ const LoginPage = () => {
     }
 
     // Mock authentication - replace with actual authentication logic
-    if (username === "admin" && password === "password") {
+    if (username === "school" && password === "pass") {
       // Redirect to admin dashboard
       router.push("/admin/dashboard");
     } else {
