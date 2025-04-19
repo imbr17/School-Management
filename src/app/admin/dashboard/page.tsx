@@ -28,7 +28,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Menu, Bell, User, Settings, Book, Report, Home, LogOut } from 'lucide-react'; // Import necessary icons
+import { Menu, Bell, User, Settings, Book, Presentation, Home, LogOut } from 'lucide-react'; // Import necessary icons
 import Link from "next/link";
 import { useState } from "react";
 
@@ -89,7 +89,7 @@ const AdminDashboardPage = () => {
               </li>
               <li>
                 <Link href="/admin/reports" className="block py-2 hover:bg-muted rounded-md flex items-center">
-                   <Report className="h-4 w-4 mr-2" />
+                   <Presentation className="h-4 w-4 mr-2" />
                   <span className="ml-2">Reports</span>
                 </Link>
               </li>
