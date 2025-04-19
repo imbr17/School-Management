@@ -28,7 +28,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Icons } from "@/components/icons";
+import { Menu, Bell, User, Settings, Book, Report, Home, LogOut } from 'lucide-react'; // Import necessary icons
 import Link from "next/link";
 import { useState } from "react";
 
@@ -63,34 +63,39 @@ const AdminDashboardPage = () => {
         >
           <div className="p-4">
             <Link href="/" className="flex items-center space-x-2 font-semibold">
-              <Icons.logo className="h-6 w-6" />
+              <Home className="h-6 w-6" /> {/* Use Home icon here */}
               <span>SchoolMate</span>
             </Link>
           </div>
           <nav className="flex-1 px-2 py-4">
             <ul>
               <li>
-                <Link href="/admin/dashboard" className="block py-2 hover:bg-muted rounded-md">
+                <Link href="/admin/dashboard" className="block py-2 hover:bg-muted rounded-md flex items-center">
+                  <Home className="h-4 w-4 mr-2" />
                   <span className="ml-2">Dashboard</span>
                 </Link>
               </li>
               <li>
-                <Link href="/admin/members" className="block py-2 hover:bg-muted rounded-md">
+                <Link href="/admin/members" className="block py-2 hover:bg-muted rounded-md flex items-center">
+                   <User className="h-4 w-4 mr-2" />
                   <span className="ml-2">Members</span>
                 </Link>
               </li>
               <li>
-                <Link href="/admin/books" className="block py-2 hover:bg-muted rounded-md">
+                <Link href="/admin/books" className="block py-2 hover:bg-muted rounded-md flex items-center">
+                   <Book className="h-4 w-4 mr-2" />
                   <span className="ml-2">Books</span>
                 </Link>
               </li>
               <li>
-                <Link href="/admin/reports" className="block py-2 hover:bg-muted rounded-md">
+                <Link href="/admin/reports" className="block py-2 hover:bg-muted rounded-md flex items-center">
+                   <Report className="h-4 w-4 mr-2" />
                   <span className="ml-2">Reports</span>
                 </Link>
               </li>
               <li>
-                <Link href="/admin/settings" className="block py-2 hover:bg-muted rounded-md">
+                <Link href="/admin/settings" className="block py-2 hover:bg-muted rounded-md flex items-center">
+                   <Settings className="h-4 w-4 mr-2" />
                   <span className="ml-2">Settings</span>
                 </Link>
               </li>
@@ -102,10 +107,10 @@ const AdminDashboardPage = () => {
           {/* Topbar */}
           <header className="bg-card border-b p-4 flex items-center justify-between">
             <Button variant="ghost" onClick={toggleSidebar} className="md:hidden">
-              <Icons.menu className="h-5 w-5" />
+              <Menu className="h-5 w-5" /> {/* Use Menu icon here */}
             </Button>
             <div className="flex items-center space-x-4">
-              <Icons.bell className="h-5 w-5" />
+              <Bell className="h-5 w-5" /> {/* Use Bell icon here */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="h-8 w-8 p-0 rounded-full">
@@ -119,7 +124,12 @@ const AdminDashboardPage = () => {
                   <DropdownMenuItem>Profile</DropdownMenuItem>
                   <DropdownMenuItem>Settings</DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>Logout</DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/">
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </Link>
+                  </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
