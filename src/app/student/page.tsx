@@ -120,7 +120,8 @@ const StudentAreaPage = () => {
                 <Avatar>
                   <AvatarImage src={student.avatarUrl} />
                   <AvatarFallback>
-                    <Icons.user className="h-4 w-4" />
+                    {/*  Use a default user icon if AvatarFallback required*/}
+                  <Icons.user className="h-4 w-4" />
                   </AvatarFallback>
                 </Avatar>
                 <div>
