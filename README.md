@@ -1,61 +1,23 @@
-# Firebase Studio
+# 📚 School Management System
 
-This is a NextJS starter in Firebase Studio.
+A modern school management app built using Next.js, TypeScript, and Tailwind CSS.
 
-## Getting Started
+---
 
-1.  **Clone the repository:**
+## 🛠️ Installation Guide
 
-    ```bash
-    git clone <repository_url>
-    cd <project_directory>
-    ```
+```bash
+# 1. Clone the repository using Deploy Key
+GIT_SSH_COMMAND="ssh -i ~/.ssh/deploy_key_github" git clone git@github.com:imbr17/School-Management.git
 
-2.  **Install dependencies:**
+# 2. Enter the project directory
+cd School-Management
 
-    ```bash
-    npm install
-    # or
-    yarn install
-    # or
-    pnpm install
-    ```
+# 3. Install dependencies
+npm install
 
-3.  **Environment Variables:**
+# 4. Run the development server
+npm run dev
 
-    *   Create a `.env` file in the root directory of the project.
-    *   Add any necessary environment variables to the `.env` file. For example:
-
-        ```
-        GOOGLE_GENAI_API_KEY=your_google_genai_api_key
-        ```
-
-4.  **Run the development server:**
-
-    ```bash
-    npm run dev
-    # or
-    yarn dev
-    # or
-    pnpm dev
-    ```
-
-    Open [http://localhost:9002](http://localhost:9002) with your browser to see the result.
-
-5.  **Genkit Development (Optional):**
-
-    To start Genkit development:
-
-    ```bash
-    npm run genkit:dev
-    ```
-
-    Or, to watch for changes:
-
-    ```bash
-    npm run genkit:watch
-    ```
-
-## Learn More
-
-To get started, take a look at `src/app/page.tsx`.
+# 5. Open your browser
+http://localhost:3000
