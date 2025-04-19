@@ -22,7 +22,7 @@ const faqData = [
   },
   {
     question: "How can I contact the school?",
-    answer: "You can contact us via email at info@schoolmate.com or by phone at (123) 456-7890.",
+    answer: "You can contact us via email at info@dreamvalleyhighschool.com or by phone at (123) 456-7890.",
   },
 ];
 
@@ -77,7 +77,7 @@ const InfoPage = () => {
                 <CardDescription>How it all began.</CardDescription>
               </CardHeader>
               <CardContent>
-               Established in 1950, SchoolName started as a small community school.
+               Established in 1950, Dream Valley High School started as a small community school.
               </CardContent>
             </Card>
           </TabsContent>
@@ -123,7 +123,7 @@ const InfoPage = () => {
         <div>
           <h2 className="text-2xl font-semibold mb-4">Our Story</h2>
           <p className="text-gray-600">
-            Founded in 1950, SchoolName has grown from a small community school to a leading educational institution.
+            Founded in 1950, Dream Valley High School has grown from a small community school to a leading educational institution.
           </p>
           <p className="text-gray-600 mt-4">
             We are committed to providing a nurturing environment where students can thrive.

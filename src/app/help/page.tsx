@@ -24,7 +24,7 @@ const faqData = [
   },
   {
     question: "How can I contact the school?",
-    answer: "You can contact us via email at info@schoolmate.com or by phone at (123) 456-7890.",
+    answer: "You can contact us via email at info@dreamvalleyhighschool.com or by phone at (123) 456-7890.",
   },
 ];
 
@@ -130,5 +130,3 @@ const HelpPage = () => {
 };
 
 export default HelpPage;
-
-    

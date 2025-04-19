@@ -64,7 +64,7 @@ const AdminDashboardPage = () => {
           <div className="p-4">
             <Link href="/" className="flex items-center space-x-2 font-semibold">
               <Home className="h-6 w-6" /> {/* Use Home icon here */}
-              <span>SchoolMate</span>
+              <span>Dream Valley High School</span>
             </Link>
           </div>
           <nav className="flex-1 px-2 py-4">

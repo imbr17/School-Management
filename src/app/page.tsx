@@ -21,19 +21,19 @@ const navigation = [
 const testimonials = [
   {
     content:
-      'SchoolMate has made it so much easier to stay informed about everything happening at school. Highly recommend!',
+      'Dream Valley High School has made it so much easier to stay informed about everything happening at school. Highly recommend!',
     author: 'Alice Smith',
     role: 'Parent',
     image: 'https://picsum.photos/id/888/50/50',
   },
   {
-    content: 'I love how SchoolMate keeps me updated on all the important dates and events. It\'s a game changer!',
+    content: 'I love how Dream Valley High School keeps me updated on all the important dates and events. It\'s a game changer!',
     author: 'Bob Johnson',
     role: 'Student',
     image: 'https://picsum.photos/id/222/50/50',
   },
   {
-    content: 'As a teacher, SchoolMate helps me communicate with parents and students effectively. Great tool!',
+    content: 'As a teacher, Dream Valley High School helps me communicate with parents and students effectively. Great tool!',
     author: 'Eve Williams',
     role: 'Teacher',
     image: 'https://picsum.photos/id/122/50/50',
@@ -64,7 +64,7 @@ const faqData = [
   },
   {
     question: "How can I contact the school?",
-    answer: "You can contact us via email at info@schoolmate.com or by phone at (123) 456-7890."
+    answer: "You can contact us via email at info@dreamvalleyhighschool.com or by phone at (123) 456-7890."
   }
 ];
 
@@ -90,7 +90,7 @@ export default function Home() {
       <header className={cn('sticky top-0 z-50 w-full bg-background/90 backdrop-blur transition-all duration-300 border-b', isSticky ? 'border-border' : 'border-transparent')}>
         <div className="container mx-auto flex items-center justify-between py-4 px-6">
           <Link href="/" className="text-lg font-bold">
-            SchoolMate
+            Dream Valley High School
           </Link>
           <nav className="hidden md:flex items-center space-x-6">
             {navigation.map((item) => (
@@ -117,7 +117,7 @@ export default function Home() {
           </div>
           <div className="container mx-auto relative px-6 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-              Welcome to Our School
+              Welcome to Dream Valley High School
             </h1>
             <p className="text-lg text-foreground mb-8">
               Nurturing Minds, Inspiring Futures.
@@ -235,7 +235,7 @@ export default function Home() {
       <footer className="bg-secondary py-12 md:py-16">
         <div className="container mx-auto px-6 text-center">
           <p className="text-sm text-muted-foreground mb-4">
-            &copy; {new Date().getFullYear()} SchoolMate. All rights reserved.
+            &copy; {new Date().getFullYear()} Dream Valley High School. All rights reserved.
           </p>
           <div className="flex items-center justify-center space-x-4">
             <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
@@ -245,11 +245,9 @@ export default function Home() {
               Privacy Policy
             </Link>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground">Contact: info@schoolmate.com</p>
+          <p className="mt-4 text-sm text-muted-foreground">Contact: info@dreamvalleyhighschool.com</p>
         </div>
       </footer>
     </div>
   );
 }
-
-
