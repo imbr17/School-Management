@@ -1,21 +1,29 @@
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+'use client';
+
+import React, {useState} from "react";
+import {useRouter} from "next/navigation";
+import {Button} from "@/components/ui/button";
+import {Input} from "@/components/ui/input";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import Link from "next/link";
+import {useToast} from "@/hooks/use-toast";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const {toast} = useToast();
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
     // Basic client-side validation
     if (!username || !password) {
-      alert("Please enter username and password.");
+      toast({
+        title: "Error!",
+        description: "Please enter username and password.",
+        variant: "destructive",
+      });
       return;
     }
 
@@ -23,8 +31,16 @@ const LoginPage = () => {
     if (username === "school" && password === "pass") {
       // Redirect to admin dashboard
       router.push("/admin/dashboard");
+      toast({
+        title: "Success!",
+        description: "Login successful!",
+      });
     } else {
-      alert("Invalid credentials.");
+      toast({
+        title: "Error!",
+        description: "Invalid credentials.",
+        variant: "destructive",
+      });
     }
   };
 
