@@ -60,6 +60,7 @@ const TeachersInfoPage = () => {
 
   return (
     <div className="container mx-auto py-12">
+       
       {/* Page Title */}
       <h1 className="text-3xl font-semibold text-center mb-8">Meet Our Teachers</h1>
 
@@ -120,3 +121,4 @@ const TeachersInfoPage = () => {
 };
 
 export default TeachersInfoPage;
+"

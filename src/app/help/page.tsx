@@ -109,7 +109,7 @@ const HelpPage = () => {
         <h2 className="text-2xl font-semibold mb-4">Our Location</h2>
         <div className="overflow-hidden rounded-lg shadow-md">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.2245934274775!2d90.39298927457823!3d23.733078587925516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b08836c57f%3A0x5ca439a253c00d49!2sDaffodil%20International%20University!5e0!3m2!1sen!2sbd!4v1718989456194!5m2!1sen!2sbd"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.2245934274775!2d90.39298927457823!3d23.733078587925516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b08836c57f%3A0x5ca439a253c00d49!2cDaffodil%20International%20University!5e0!3m2!1sen!2sbd!4v1718989456194!5m2!1sen!2sbd"
             width="600"
             height="450"
             style={{ border: 0 }}

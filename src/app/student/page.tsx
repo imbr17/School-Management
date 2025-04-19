@@ -25,6 +25,7 @@ const StudentAreaPage = () => {
 
   return (
     <div className="container mx-auto py-12">
+           
       {/* Welcome Banner */}
       <section className="mb-8 p-8 bg-secondary rounded-lg shadow-md">
         <h1 className="text-3xl font-semibold text-center">
@@ -164,3 +165,4 @@ const StudentAreaPage = () => {
 };
 
 export default StudentAreaPage;
+"
