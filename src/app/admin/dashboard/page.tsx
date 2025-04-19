@@ -1,3 +1,5 @@
+'use client';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -202,3 +204,4 @@ const AdminDashboardPage = () => {
 };
 
 export default AdminDashboardPage;
+
