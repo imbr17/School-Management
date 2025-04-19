@@ -1,5 +1,3 @@
-"use client";
-
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -146,16 +144,12 @@ const StudentAreaPage = () => {
                 </div>
               </div>
               <div className="mt-6 flex justify-end space-x-2">
-                <Button variant="outline">
                 <Link href="/edit-profile">
-                  Edit Profile
-                  </Link>
-                </Button>
-                <Button>
-                 <Link href="/logout">
-                  Logout
-                  </Link>
-                  </Button>
+                  <Button variant="outline">Edit Profile</Button>
+                </Link>
+                <Link href="/logout">
+                  <Button>Logout</Button>
+                </Link>
               </div>
             </CardContent>
           </Card>
@@ -166,4 +160,3 @@ const StudentAreaPage = () => {
 };
 
 export default StudentAreaPage;
-"

@@ -1,10 +1,7 @@
-"use client";
-
 import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Icons } from "@/components/icons";
 import Link from "next/link";
@@ -219,9 +216,9 @@ const TeachersInfoPage = () => {
 
       {/* CTA Section */}
       <section className="mt-16 text-center">
-        <Button size="lg">
-          <Link href="/contact">Want to join our teaching team?</Link>
-        </Button>
+        <Link href="/contact">
+          <Button size="lg">Want to join our teaching team?</Button>
+        </Link>
       </section>
     </div>
   );

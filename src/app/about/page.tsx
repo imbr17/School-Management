@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Accordion,
   AccordionContent,
@@ -153,9 +151,9 @@ const InfoPage = () => {
 
       {/* CTA Section */}
       <section className="text-center">
-        <Button size="lg">
-         <Link href="/teachers">Meet Our Teachers</Link>
-         </Button>
+        <Link href="/teachers">
+          <Button size="lg">Meet Our Teachers</Button>
+        </Link>
       </section>
     </div>
   );

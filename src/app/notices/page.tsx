@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -115,7 +113,7 @@ const NoticePage = () => {
       {/* Archive Section */}
       <section className="mt-12">
         <h2 className="text-2xl font-semibold mb-4">Archive</h2>
-        <Accordion type="multiple" collapsible={"true"}>
+        <Accordion type="multiple" collapsible>
           <AccordionItem value="2024">
             <AccordionTrigger>2024</AccordionTrigger>
             <AccordionContent>
