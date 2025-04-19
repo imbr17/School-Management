@@ -13,6 +13,7 @@ const navigation = [
   {name: 'Home', href: '/'},
   {name: 'About', href: '/about'},
   {name: 'Notices', href: '/notices'},
+  {name: 'Help', href: '/help'},
   {name: 'Teachers', href: '/teachers'},
   {name: 'Contact', href: '/contact'},
 ];
@@ -250,3 +251,6 @@ export default function Home() {
     </div>
   );
 }
+
+
+    
