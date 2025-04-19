@@ -1,172 +1,215 @@
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
-import {Button} from "@/components/ui/button";
-import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import {Icons} from "@/components/icons";
-import {cn} from "@/lib/utils";
-import Link from "next/link";
+'use client';
+
+import {Button} from '@/components/ui/button';
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
+import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
+import {Icons} from '@/components/icons';
+import {cn} from '@/lib/utils';
+import Link from 'next/link';
+import {useEffect, useState} from 'react';
+
+const navigation = [
+  {name: 'Home', href: '/'},
+  {name: 'About', href: '#about'},
+  {name: 'Notices', href: '/notices'},
+  {name: 'Help', href: '/help'},
+  {name: 'Contact', href: '/contact'},
+];
+
+const testimonials = [
+  {
+    content:
+      'SchoolMate has made it so much easier to stay informed about everything happening at school. Highly recommend!',
+    author: 'Alice Smith',
+    role: 'Parent',
+    image: 'https://picsum.photos/id/888/50/50',
+  },
+  {
+    content: 'I love how SchoolMate keeps me updated on all the important dates and events. It\'s a game changer!',
+    author: 'Bob Johnson',
+    role: 'Student',
+    image: 'https://picsum.photos/id/222/50/50',
+  },
+  {
+    content: 'As a teacher, SchoolMate helps me communicate with parents and students effectively. Great tool!',
+    author: 'Eve Williams',
+    role: 'Teacher',
+    image: 'https://picsum.photos/id/122/50/50',
+  },
+];
+
+const notices = [
+  {title: 'PTA Meeting', description: 'October 26, 2024', content: 'Join us for the Parent-Teacher Association meeting to discuss upcoming school events.'},
+  {title: 'Science Fair', description: 'November 10, 2024', content: 'Showcase your scientific talents at our annual science fair.'},
+  {title: 'Holiday Concert', description: 'December 18, 2024', content: 'Celebrate the holidays with our festive school concert.'},
+];
+
+const stats = [
+  {title: 'Students', value: '1200+'},
+  {title: 'Teachers', value: '80+'},
+  {title: 'Events', value: '20+'},
+  {title: 'Clubs', value: '15+'},
+];
 
 export default function Home() {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="container mx-auto py-10">
-      <section className="mb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="md:order-2">
+    <div className="bg-background min-h-screen text-foreground">
+      {/* Sticky Navbar */}
+      <header className={cn('sticky top-0 z-50 w-full bg-background/90 backdrop-blur transition-all duration-300 border-b', isSticky ? 'border-border' : 'border-transparent')}>
+        <div className="container mx-auto flex items-center justify-between py-4 px-6">
+          <Link href="/" className="text-lg font-bold">
+            SchoolMate
+          </Link>
+          <nav className="hidden md:flex items-center space-x-6">
+            {navigation.map((item) => (
+              <Link key={item.name} href={item.href} className="hover:text-primary transition-colors duration-200">
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+          <Button>Login</Button>
+        </div>
+      </header>
+
+      <main>
+        {/* Hero Section */}
+        <section className="relative py-24 md:py-32 bg-gray-100 overflow-hidden">
+          <div className="absolute inset-0">
             <img
-              src="https://picsum.photos/id/100/600/400"
+              src="https://picsum.photos/id/1074/2000/1000"
               alt="School Campus"
-              className="rounded-lg shadow-md"
+              className="absolute inset-0 object-cover w-full h-full opacity-30"
             />
-            <div className="mt-4">
-              <h3 className="text-xl font-semibold mb-2">Explore More</h3>
-              <ul>
-                <li>
-                  <Link href="/notices" className="text-gray-300 hover:text-gray-100">
-                    Notices &amp; Events
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/stats" className="text-gray-300 hover:text-gray-100">
-                    Quick Stats
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/testimonials" className="text-gray-300 hover:text-gray-100">
-                    Testimonials
-                  </Link>
-                </li>
-              </ul>
-            </div>
           </div>
-          <div className="md:order-1 flex flex-col justify-center">
-            <h1 className="text-4xl font-bold mb-4">Welcome to SchoolMate!</h1>
-            <p className="text-gray-300 mb-6">
-              Your go-to platform for staying connected with school activities, announcements, and teacher
-              information.
+          <div className="container mx-auto relative px-6 text-center">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+              Welcome to Our School
+            </h1>
+            <p className="text-lg text-foreground mb-8">
+              Nurturing Minds, Inspiring Futures.
             </p>
-            <Button>Learn More</Button>
+            <Button size="lg">See Notices</Button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-6">Notices &amp; Events</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Example Notices */}
-          <Card>
-            <CardHeader>
-              <CardTitle>PTA Meeting</CardTitle>
-              <CardDescription>October 26, 2024</CardDescription>
-            </CardHeader>
-            <CardContent>
-              Join us for the Parent-Teacher Association meeting to discuss upcoming school events.
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Science Fair</CardTitle>
-              <CardDescription>November 10, 2024</CardDescription>
-            </CardHeader>
-            <CardContent>
-              Showcase your scientific talents at our annual science fair.
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Holiday Concert</CardTitle>
-              <CardDescription>December 18, 2024</CardDescription>
-            </CardHeader>
-            <CardContent>
-              Celebrate the holidays with our festive school concert.
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+        {/* About Section */}
+        <section id="about" className="py-16 md:py-24">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-semibold text-center mb-8">About Us</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="bg-secondary">
+                <CardHeader>
+                  <CardTitle>Our Vision</CardTitle>
+                  <CardDescription>A brief overview of what we aim to achieve.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  To provide a nurturing environment where students can excel academically, socially, and emotionally.
+                </CardContent>
+              </Card>
+              <Card className="bg-secondary">
+                <CardHeader>
+                  <CardTitle>Our Mission</CardTitle>
+                  <CardDescription>How we plan to make our vision a reality.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  We are dedicated to fostering a community of lifelong learners and responsible global citizens.
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
 
-      <section className="mb-12">
-        <h2 className="text-3xl font-semibold mb-6">Quick Stats</h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {/* Example Counters */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Students</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold">1200+</CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Teachers</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold">80+</CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Events</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold">20+</CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Clubs</CardTitle>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold">15+</CardContent>
-          </Card>
-        </div>
-      </section>
+        {/* Statistics Section */}
+        <section className="py-16 md:py-24 bg-muted">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl font-semibold mb-8">Quick Stats</h2>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {stats.map((stat) => (
+                <Card key={stat.title} className="bg-secondary">
+                  <CardHeader>
+                    <CardTitle>{stat.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-2xl font-bold">{stat.value}</CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
-      <section>
-        <h2 className="text-3xl font-semibold mb-6">Testimonials</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Example Testimonials */}
-          <Card>
-            <CardContent className="mb-4">
-              "SchoolMate has made it so much easier to stay informed about everything happening at school.
-              Highly recommend!"
-            </CardContent>
-            <div className="flex items-center space-x-4">
-              <Avatar>
-                <AvatarImage src="https://picsum.photos/id/888/50/50"/>
-                <AvatarFallback><Icons.user className="h-4 w-4"/></AvatarFallback>
-              </Avatar>
-              <div>
-                <div className="text-sm font-semibold">Alice Smith</div>
-                <div className="text-xs text-muted-foreground">Parent</div>
-              </div>
+        {/* Upcoming Events or Notices Section */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-semibold mb-8">Upcoming Events &amp; Notices</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {notices.map((notice) => (
+                <Card key={notice.title} className="bg-secondary">
+                  <CardHeader>
+                    <CardTitle>{notice.title}</CardTitle>
+                    <CardDescription>{notice.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>{notice.content}</CardContent>
+                </Card>
+              ))}
             </div>
-          </Card>
-          <Card>
-            <CardContent className="mb-4">
-              "I love how SchoolMate keeps me updated on all the important dates and events. It's a game
-              changer!"
-            </CardContent>
-            <div className="flex items-center space-x-4">
-              <Avatar>
-                <AvatarImage src="https://picsum.photos/id/222/50/50"/>
-                <AvatarFallback><Icons.user className="h-4 w-4"/></AvatarFallback>
-              </Avatar>
-              <div>
-                <div className="text-sm font-semibold">Bob Johnson</div>
-                <div className="text-xs text-muted-foreground">Student</div>
-              </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-16 md:py-24 bg-muted">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-semibold mb-8 text-center">Testimonials</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {testimonials.map((testimonial) => (
+                <Card key={testimonial.author} className="bg-secondary">
+                  <CardContent className="mb-4">{testimonial.content}</CardContent>
+                  <div className="flex items-center space-x-4">
+                    <Avatar>
+                      <AvatarImage src={testimonial.image}/>
+                      <AvatarFallback><Icons.user className="h-4 w-4"/></AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <div className="text-sm font-semibold">{testimonial.author}</div>
+                      <div className="text-xs text-muted-foreground">{testimonial.role}</div>
+                    </div>
+                  </div>
+                </Card>
+              ))}
             </div>
-          </Card>
-          <Card>
-            <CardContent className="mb-4">
-              "As a teacher, SchoolMate helps me communicate with parents and students effectively. Great
-              tool!"
-            </CardContent>
-            <div className="flex items-center space-x-4">
-              <Avatar>
-                <AvatarImage src="https://picsum.photos/id/122/50/50"/>
-                <AvatarFallback><Icons.user className="h-4 w-4"/></AvatarFallback>
-              </Avatar>
-              <div>
-                <div className="text-sm font-semibold">Eve Williams</div>
-                <div className="text-xs text-muted-foreground">Teacher</div>
-              </div>
-            </div>
-          </Card>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-secondary py-12 md:py-16">
+        <div className="container mx-auto px-6 text-center">
+          <p className="text-sm text-muted-foreground mb-4">
+            &copy; {new Date().getFullYear()} SchoolMate. All rights reserved.
+          </p>
+          <div className="flex items-center justify-center space-x-4">
+            <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
+              Terms of Service
+            </Link>
+            <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
+              Privacy Policy
+            </Link>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">Contact: info@schoolmate.com</p>
         </div>
-      </section>
+      </footer>
     </div>
   );
 }
