@@ -3,6 +3,7 @@ import {Button} from "@/components/ui/button";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Icons} from "@/components/icons";
 import {cn} from "@/lib/utils";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -11,10 +12,30 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="md:order-2">
             <img
-              src="https://picsum.photos/id/237/600/400"
-              alt="School Activities"
+              src="https://picsum.photos/id/100/600/400"
+              alt="School Campus"
               className="rounded-lg shadow-md"
             />
+            <div className="mt-4">
+              <h3 className="text-xl font-semibold mb-2">Explore More</h3>
+              <ul>
+                <li>
+                  <Link href="/notices" className="text-gray-300 hover:text-gray-100">
+                    Notices &amp; Events
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/stats" className="text-gray-300 hover:text-gray-100">
+                    Quick Stats
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/testimonials" className="text-gray-300 hover:text-gray-100">
+                    Testimonials
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
           <div className="md:order-1 flex flex-col justify-center">
             <h1 className="text-4xl font-bold mb-4">Welcome to SchoolMate!</h1>
