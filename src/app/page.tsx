@@ -7,12 +7,13 @@ import {Icons} from '@/components/icons';
 import {cn} from '@/lib/utils';
 import Link from 'next/link';
 import {useEffect, useState} from 'react';
+import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 
 const navigation = [
   {name: 'Home', href: '/'},
-  {name: 'About', href: '#about'},
+  {name: 'About', href: '/about'},
   {name: 'Notices', href: '/notices'},
-  {name: 'Help', href: '/help'},
+  {name: 'Teachers', href: '/teachers'},
   {name: 'Contact', href: '/contact'},
 ];
 
@@ -51,6 +52,22 @@ const stats = [
   {title: 'Clubs', value: '15+'},
 ];
 
+const faqData = [
+  {
+    question: "What is the school's mission?",
+    answer: "Our mission is to provide a nurturing environment where students can excel academically, socially, and emotionally."
+  },
+  {
+    question: "What extracurricular activities are available?",
+    answer: "We offer a variety of extracurricular activities, including sports, music, arts, and clubs."
+  },
+  {
+    question: "How can I contact the school?",
+    answer: "You can contact us via email at info@schoolmate.com or by phone at (123) 456-7890."
+  }
+];
+
+
 export default function Home() {
   const [isSticky, setIsSticky] = useState(false);
 
@@ -81,13 +98,15 @@ export default function Home() {
               </Link>
             ))}
           </nav>
+          <Link href="/login">
           <Button>Login</Button>
+          </Link>
         </div>
       </header>
 
       <main>
         {/* Hero Section */}
-        <section className="relative py-24 md:py-32 bg-gray-100 overflow-hidden">
+        <section className="relative py-24 md:py-32 bg-secondary overflow-hidden">
           <div className="absolute inset-0">
             <img
               src="https://picsum.photos/id/1074/2000/1000"
@@ -102,7 +121,9 @@ export default function Home() {
             <p className="text-lg text-foreground mb-8">
               Nurturing Minds, Inspiring Futures.
             </p>
+            <Link href="/notices">
             <Button size="lg">See Notices</Button>
+            </Link>
           </div>
         </section>
 
@@ -111,7 +132,7 @@ export default function Home() {
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-semibold text-center mb-8">About Us</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="bg-secondary">
+              <Card className="bg-secondary shadow-md">
                 <CardHeader>
                   <CardTitle>Our Vision</CardTitle>
                   <CardDescription>A brief overview of what we aim to achieve.</CardDescription>
@@ -120,7 +141,7 @@ export default function Home() {
                   To provide a nurturing environment where students can excel academically, socially, and emotionally.
                 </CardContent>
               </Card>
-              <Card className="bg-secondary">
+              <Card className="bg-secondary shadow-md">
                 <CardHeader>
                   <CardTitle>Our Mission</CardTitle>
                   <CardDescription>How we plan to make our vision a reality.</CardDescription>
@@ -139,7 +160,7 @@ export default function Home() {
             <h2 className="text-3xl font-semibold mb-8">Quick Stats</h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {stats.map((stat) => (
-                <Card key={stat.title} className="bg-secondary">
+                <Card key={stat.title} className="bg-secondary shadow-md">
                   <CardHeader>
                     <CardTitle>{stat.title}</CardTitle>
                   </CardHeader>
@@ -156,7 +177,7 @@ export default function Home() {
             <h2 className="text-3xl font-semibold mb-8">Upcoming Events &amp; Notices</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {notices.map((notice) => (
-                <Card key={notice.title} className="bg-secondary">
+                <Card key={notice.title} className="bg-secondary shadow-md">
                   <CardHeader>
                     <CardTitle>{notice.title}</CardTitle>
                     <CardDescription>{notice.description}</CardDescription>
@@ -174,7 +195,7 @@ export default function Home() {
             <h2 className="text-3xl font-semibold mb-8 text-center">Testimonials</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {testimonials.map((testimonial) => (
-                <Card key={testimonial.author} className="bg-secondary">
+                <Card key={testimonial.author} className="bg-secondary shadow-md">
                   <CardContent className="mb-4">{testimonial.content}</CardContent>
                   <div className="flex items-center space-x-4">
                     <Avatar>
@@ -191,6 +212,22 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+               {/* FAQ Section */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-semibold mb-8 text-center">Frequently Asked Questions</h2>
+            <Accordion type="single" collapsible>
+              {faqData.map((item, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger>{item.question}</AccordionTrigger>
+                  <AccordionContent>{item.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </section>
+
       </main>
 
       {/* Footer */}
